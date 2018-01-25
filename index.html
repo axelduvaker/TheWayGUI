@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TheWay GUI</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="scripts.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+
+<body ng-app="app">
+    <div class="container">
+        <div ng-controller="appCtrl">
+            <h1>Testa ett ord på en hemsida</h1>
+
+            <p>Välj din hemsida:</p>
+            <input type="text" ng-model="website">
+            <p>Välj ditt ord:</p>
+            <input type="text" ng-model="word">
+            <p>Välj ditt tidsintervall:</p>
+            <input type="number" ng-model="number">
+            
+            <div>
+                <button type="submit" ng-click="onclick()">Prova här</button>
+            </div>
+
+            <h3>{{answer}}</h3>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
