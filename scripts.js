@@ -28,16 +28,18 @@ var app = angular.module('app', [])
             var word = $scope.word;
             var number = $scope.number;
 
-            var postsList = [];
-
-            var posts = {
-                website: $scope.website,
-                word: $scope.word,
-                number: $scope.number
-            };
+            $scope.postsList = [];
 
             theWayService.getWordCount(website, word, number).then(function (result) {
                 console.log(result.data);
+                var data = {
+                    url: result.data.Url,
+                    word: result.data.Word,
+                    count: result.data.Count
+                };
+                $scope.postsList.push(data);
+                
+
             });
 
         }

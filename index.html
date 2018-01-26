@@ -29,13 +29,13 @@
             <table class="table table-striped">
                 <tr>
                     <th>Website</th>
-                    <th>Word Counts</th>
-                    <th>Time Interval</th>
+                    <th>Word</th>
+                    <th>Counts</th>
                 </tr>
                 <tr ng-repeat="post in postsList">
-                    <td>{{post.website}}</td>
+                    <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
-                    <td>{{post.number}}</td>
+                    <td>{{post.count}}</td>
                 </tr>
             </table>
         </div>
