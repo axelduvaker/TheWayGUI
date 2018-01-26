@@ -2,26 +2,28 @@ var api = "http://localhost:63885/api/values";
 
 var app = angular.module('app', [])
 
-    .controller('appCtrl', function($scope, $http) {
-        $scope.onclick = function() {
+    .controller('appCtrl', ["$scope", "$http", "theWayService", function ($scope, $http, theWayService) {
+        $scope.onclick = function () {
             var website = $scope.website;
             var word = $scope.word;
             var number = $scope.number;
-    
+
             $http({
-                method : "GET",
-                url : api + "/" + website + "/" + word + "/" + number
+                method: "GET",
+                url: api + "/" + website + "/" + word + "/" + number
             }).then(function mySuccess(response) {
                 $scope.answer = response.data;
             }, function myError(response) {
                 $scope.answer = response.data;
             }
-        )};
-    })
+                )
+        };
+    }
+    ])
 
-    .controller('tableCtrl', function($scope, $http) {
-        $scope.onclick = function() {
-            
+    .controller('tableCtrl', ["$scope", "$http", "theWayService", function ($scope, $http, theWayService) {
+        $scope.onclick = function () {
+
             var website = $scope.website;
             var word = $scope.word;
             var number = $scope.number;
@@ -34,17 +36,28 @@ var app = angular.module('app', [])
                 number: $scope.number
             };
 
-            $http({
-                method : "GET",
-                url : api + "/" + website + "/" + word + "/" + number
-            }).then(function mySuccess(response) {
-                console.log(response.data);
-                $scope.postsList.push(response.data); 
-            }, function myError(response) {
-                $scope.answer = response.data;
-            })
+            theWayService.getWordCount(website, word, number).then(function (result) {
+                console.log(result.data);
+            });
 
-            }
         }
-    )
+    }
+    ])
+
+    .service('theWayService', ["$http", "$q", function ($http, $q) {
+        var self = this;
+
+        self.getWordCount = function (website, word, number) {
+            var deferred = $q.defer();
+            $http.get(api + "/" + website + "/" + word + "/" + number)
+                .then(function (success) {
+                    deferred.resolve(success);
+                }),
+                function (error) {
+                    deferred.reject(error);
+                };
+            return deferred.promise;
+        }
+    }
+    ]);
 
