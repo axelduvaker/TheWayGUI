@@ -1,0 +1,19 @@
+{
+  "name": "thewaygui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelduvaker/TheWayGUI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axelduvaker/TheWayGUI/issues"
+  },
+  "homepage": "https://github.com/axelduvaker/TheWayGUI#readme"
+}
