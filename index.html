@@ -11,7 +11,7 @@
 
 <body ng-app="app">
     <div class="container">
-        <div ng-controller="appCtrl">
+        <div ng-controller="tableCtrl">
             <h1>Testa ett ord på en hemsida</h1>
 
             <p>Välj din hemsida:</p>
@@ -25,6 +25,19 @@
             </div>
 
             <h3>{{answer}}</h3>
+            
+            <table class="table table-striped">
+                <tr>
+                    <th>Website</th>
+                    <th>Word Counts</th>
+                    <th>Time Interval</th>
+                </tr>
+                <tr ng-repeat="post in postsList">
+                    <td>{{post.website}}</td>
+                    <td>{{post.word}}</td>
+                    <td>{{post.number}}</td>
+                </tr>
+            </table>
         </div>
     </div>
 
