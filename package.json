@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/axelduvaker/TheWayGUI/issues"
   },
-  "homepage": "https://github.com/axelduvaker/TheWayGUI#readme"
+  "homepage": "https://github.com/axelduvaker/TheWayGUI#readme",
+  "dependencies": {
+    "angular": "^1.6.8",
+    "bootstrap": "^4.0.0"
+  }
 }
