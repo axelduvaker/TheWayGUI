@@ -27,10 +27,17 @@
             <h3>{{answer}}</h3>
             
             <table class="table table-striped">
+                    <colgroup>
+                        <col width="40%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="10%" />
+                    </colgroup>
                 <tr>
                     <th>Website</th>
                     <th>Word</th>
                     <th>Counts</th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="post in postsList">
                     <td>{{post.url}}</td>
