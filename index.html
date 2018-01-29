@@ -23,9 +23,9 @@
             <div>
                 <button type="submit" class="col-xs-2" ng-click="onclick()">Lägg till test i listan</button>
             </div>
-
-            <h3>{{answer}}</h3>
-            
+            <div class="alert alert-warning">
+                <h3>{{answer}}</h3>
+            </div>
             <table class="table table-striped">
                     <colgroup>
                         <col width="40%" />
@@ -37,26 +37,18 @@
                     <th>Website</th>
                     <th>Word</th>
                     <th>Counts</th>
-<<<<<<< HEAD
                     <th>Status</th>
-=======
-                    <th></th>
->>>>>>> f51742439102f7c06dc9493dc87396ab51332a6c
                 </tr>
-                <tr ng-repeat="post in postsList">
+                <tr ng-model="lista" ng-repeat="post in postsList">
                     <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
                     <td>{{post.count}}</td>
-<<<<<<< HEAD
                     <td>{{post.status}} {{post.statusText}}</td>
-                    <td><button type="submit" ng-click="remove(post)">Ta bort</button></td>
-=======
                     <td>
                         <button type="submit" class="btn btn-danger btn-xs" ng-click="remove(post)">
                                 <i class="far fa-trash-alt"></i>
                         </button>
                     </td>
->>>>>>> f51742439102f7c06dc9493dc87396ab51332a6c
                 </tr>
             </table>
         </div>

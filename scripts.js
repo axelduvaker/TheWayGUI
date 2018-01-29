@@ -2,12 +2,14 @@ var api = "http://localhost:63885/api/values";
 
 var app = angular.module('app', [])
 
-    .controller('tableCtrl', ["$scope", "$http", "theWayService", function ($scope, $http, theWayService) {
+    .controller('tableCtrl', ["$scope", "$http", "theWayService", "$interval", function ($scope, $http, theWayService, $interval) {
 
         $scope.postsList = [];
+        var promise;
+
         
             $scope.onclick = function () {
-
+                var bData;
                 var website = $scope.website;
                 var word = $scope.word;
                 var number = $scope.number;
@@ -21,9 +23,16 @@ var app = angular.module('app', [])
                         status: result.status,
                         statusText: result.statusText
                     };
-                
-                    $scope.postsList.push(data);
+
+                    if (result.data.Word == "null") {
+                        $scope.answer = result.data;
+                    } 
+                    else
+                    {
+                        $scope.postsList.push(data);
+                    }
                 });
+                promise = $interval($scope.onclick, 10000);
             }
 
             $scope.remove = function(post) {
