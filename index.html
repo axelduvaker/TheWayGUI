@@ -31,11 +31,13 @@
                     <th>Website</th>
                     <th>Word</th>
                     <th>Counts</th>
+                    <th>Status</th>
                 </tr>
                 <tr ng-repeat="post in postsList">
                     <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
                     <td>{{post.count}}</td>
+                    <td>{{post.status}} {{post.statusText}}</td>
                     <td><button type="submit" ng-click="remove(post)">Ta bort</button></td>
                 </tr>
             </table>

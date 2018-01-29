@@ -17,7 +17,9 @@ var app = angular.module('app', [])
                     var data = {
                         url: result.data.Url,
                         word: result.data.Word,
-                        count: result.data.Count
+                        count: result.data.Count,
+                        status: result.status,
+                        statusText: result.statusText
                     };
                 
                     $scope.postsList.push(data);
