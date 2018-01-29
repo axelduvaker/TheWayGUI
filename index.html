@@ -36,12 +36,9 @@
                     <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
                     <td>{{post.count}}</td>
-                    <td><input type="checkbox" ng-model="post.selected"></td>
+                    <td><button type="submit" ng-click="remove(post)">Ta bort</button></td>
                 </tr>
             </table>
-            <div>
-                <button type="submit" class="pull-right" ng-click="remove()">Ta bort markerade tester</button>
-            </div>
         </div>
     </div>
 

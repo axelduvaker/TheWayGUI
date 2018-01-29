@@ -24,15 +24,20 @@ var app = angular.module('app', [])
                 });
             }
 
-            $scope.remove = function() {
-                var newPostsList = [];
-                angular.forEach($scope.postsList, function (selected) {
-                    if(!selected.selected) {
-                        newPostsList.push(selected);
-                    }
-                });
-                $scope.postsList = newPostsList;
+            $scope.remove = function(post) {
+                var index = $scope.postsList.indexOf(post);
+                $scope.postsList.splice(index, 1);
             }
+
+            // $scope.remove = function() {
+            //     var newPostsList = [];
+            //     angular.forEach($scope.postsList, function (selected) {
+            //         if(!selected.selected) {
+            //             newPostsList.push(selected);
+            //         }
+            //     });
+            //     $scope.postsList = newPostsList;
+            // }
         }
         ])
 
