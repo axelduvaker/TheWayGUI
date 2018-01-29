@@ -23,6 +23,16 @@ var app = angular.module('app', [])
                     $scope.postsList.push(data);
                 });
             }
+
+            $scope.remove = function() {
+                var newPostsList = [];
+                angular.forEach($scope.postsList, function (selected) {
+                    if(!selected.selected) {
+                        newPostsList.push(selected);
+                    }
+                });
+                $scope.postsList = newPostsList;
+            }
         }
         ])
 

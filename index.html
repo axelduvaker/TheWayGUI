@@ -21,7 +21,7 @@
             <p>Välj ditt tidsintervall:</p>
             <input type="number" ng-model="number">
             <div>
-                <button type="submit" ng-click="onclick()">Lägg till test i listan</button>
+                <button type="submit" class="col-xs-2" ng-click="onclick()">Lägg till test i listan</button>
             </div>
 
             <h3>{{answer}}</h3>
@@ -36,8 +36,12 @@
                     <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
                     <td>{{post.count}}</td>
+                    <td><input type="checkbox" ng-model="post.selected"></td>
                 </tr>
             </table>
+            <div>
+                <button type="submit" class="pull-right" ng-click="remove()">Ta bort markerade tester</button>
+            </div>
         </div>
     </div>
 
