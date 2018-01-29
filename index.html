@@ -5,7 +5,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="scripts.js"></script>
-    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 
@@ -36,7 +36,11 @@
                     <td>{{post.url}}</td>
                     <td>{{post.word}}</td>
                     <td>{{post.count}}</td>
-                    <td><button type="submit" ng-click="remove(post)">Ta bort</button></td>
+                    <td>
+                        <button type="submit" class="btn btn-danger btn-xs" ng-click="remove(post)">
+                                <i class="far fa-trash-alt"></i>
+                        </button>
+                    </td>
                 </tr>
             </table>
         </div>
