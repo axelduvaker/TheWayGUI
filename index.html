@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>TheWay GUI</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="scripts.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+    <script src="https://use.fontawesome.com/df17df5712.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css" />
 </head>
 
 <body ng-app="app">
@@ -23,16 +27,16 @@
             <div>
                 <button type="submit" class="col-xs-2" ng-click="onclick()">Lägg till test i listan</button>
             </div>
-            <div class="alert alert-warning">
+            <!--             <div class="alert alert-warning">
                 <h3>{{answer}}</h3>
-            </div>
+            </div> -->
             <table class="table table-striped">
-                    <colgroup>
-                        <col width="40%" />
-                        <col width="25%" />
-                        <col width="25%" />
-                        <col width="10%" />
-                    </colgroup>
+                <colgroup>
+                    <col width="40%" />
+                    <col width="25%" />
+                    <col width="25%" />
+                    <col width="10%" />
+                </colgroup>
                 <tr>
                     <th>Website</th>
                     <th>Word</th>
@@ -46,15 +50,44 @@
                     <td>{{post.status}} {{post.statusText}}</td>
                     <td>
                         <button type="submit" class="btn btn-danger btn-xs" ng-click="remove(post)">
-                                <i class="far fa-trash-alt"></i>
+                            <i class="far fa-trash-alt"></i>
                         </button>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <div class="container" ng-controller="appCtrl">
+        <div class="row align-items-center justify-content-center">
+            <div class="col">
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-info btn-sm" ng-click="getJSON()">Starta analys</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="stop()">Stoppa analys</button>
+                <div ng-show="activated">
+                    Analys kör:
+                    <i class="fa fa-spinner fa-spin" style="font-size:18px;color:LawnGreen"></i>
+                </div>
+                <div ng-show="stopped">
+                    Analys stoppad:
+                    <i class="fa fa-exclamation-circle" style="color:red"></i>
+                </div>
+                <br>
+                <div ng-show="activated">
+                    <p ng-controller="appCtrl">Status: {{myData.status}}</p>
+                    <p ng-controller="appCtrl">Antal processer: {{myData.nop}}</p>
+                    <p ng-controller="appCtrl">Operativsystem: {{myData.caption}}</p>
+                    <p ng-controller="appCtrl">Ledigt RAM-minne: {{myData.freememory}}MB / {{myData.totalmemory}}MB</p>
+                    <p ng-controller="appCtrl">Status kontrollerad: {{myData.datetime}}</p>
+                    <p>{{errorMessage}}</p>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
 
 
 
 </body>
+
 </html>
